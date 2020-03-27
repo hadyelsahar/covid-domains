@@ -1,6 +1,25 @@
 # wikidata sparql query to get all covid-19 pages in all wikis
 # https://w.wiki/LPR
 
+# sparql query 
+#Recent Events
+# SELECT ?article ?name ?lang
+# WHERE
+# {
+# 	# find events
+# 	?event wdt:P361 wd:Q81068910.  # part of corona epidemic
+# 	OPTIONAL {
+#         ?article schema:about ?event ;
+#               schema:inLanguage ?lang ;
+#               schema:name ?name ;
+#               schema:isPartOf [ wikibase:wikiGroup "wikipedia" ] .
+#         FILTER(?lang in ('sq', 'id', 'ar', 'ceb', 'ha', 'hi', 'kr', 'rw', 'ko', 'ml', 'my', 'ru', 'zh', 'es', 'sw', 'tl', 'th', 'tr', 'vi')) .
+#         FILTER (!CONTAINS(?name, ':')) .
+# 	}
+# }
+
+
+
 import pandas as pd 
 import requests 
 import re
